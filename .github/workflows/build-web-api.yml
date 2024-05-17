@@ -1,4 +1,4 @@
-name: capstone-code-web
+name: capstone-code-web-api
 
 on:
   push:

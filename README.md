@@ -17,13 +17,13 @@ This code structure contains both the Web and WebAPI of the Capstone Project.
 
 4. [Visual Studio Code](https://code.visualstudio.com/Download)
 
-4.1. Optional [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+   4.1. Optional [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
 
-4.2. Optional [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
+   4.2. Optional [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
 
-4.3. Optional [Azure Repos extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos)
+   4.3. Optional [Azure Repos extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos)
 
-4.4. Optional [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub)
+   4.4. Optional [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub)
 
 
 5. [Visual Studio](https://visualstudio.microsoft.com/downloads)
@@ -35,37 +35,28 @@ This code structure contains both the Web and WebAPI of the Capstone Project.
 
 1. capstone.web.api
 
-1.1. Open `capstone.web.api\capstone.web.api.sln` in Visual Studio
+   1.1. Open `capstone.web.api\capstone.web.api.sln` in Visual Studio
 
+   1.2. Build the solution (ctrl+shift+b)
 
-1.2. Build the solution (ctrl+shift+b)
+   1.3. Run the solution in https mode (f5)
 
-
-1.3. Run the solution in https mode (f5)
-
-
-1.4. Access the [Swagger UI](https://localhost:7197/swagger/)
+   1.4. Access the [Swagger UI](https://localhost:7197/swagger/)
 
 
 2. capstone.web
 
+   2.1. Open `capstone.web` folder in Visual Studio Code
 
-2.1. Open `capstone.web` folder in Visual Studio Code
+   2.2. Open Terminal
 
+   2.3. Install Angular `npm install --global @angular/cli`
 
-2.2. Open Terminal
+   2.4. Install project dependancies `npm install`
 
+   2.5. Run the application `ng serve`
 
-2.3. Install Angular `npm install --global @angular/cli`
-
-
-2.4. Install project dependancies `npm install`
-
-
-2.5. Run the application `ng serve`
-
-
-2.6. Access the [To Do web page](http://localhost:4000/)
+   2.6. Access the [To Do web page](http://localhost:4000/)
 
 
 
