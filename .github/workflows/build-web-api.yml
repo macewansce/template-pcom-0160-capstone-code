@@ -1,16 +1,12 @@
-name: capstone-code-web-api
-
+name: code-capstone-web-api
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -24,3 +20,12 @@ jobs:
     - name: Build
       working-directory: './capstone.web.api'
       run: dotnet build --no-restore
+    - name: Create tool manifest
+      working-directory: './capstone.web.api'
+      run: dotnet new tool-manifest
+    - name: Install dotnet-ef tools
+      working-directory: './capstone.web.api'
+      run: dotnet tool install dotnet-ef
+    - name: Generate Database Migration Script
+      working-directory: './capstone.web.api'
+      run: dotnet tool run dotnet-ef migrations script --idempotent --project Capstone.web.api.csproj --context AppDbContext --startup-project Capstone.web.api.csproj --configuration Release --output ${{env.DOTNET_ROOT}}/todo-db-script.sql --verbose
