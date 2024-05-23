@@ -28,4 +28,4 @@ jobs:
       run: dotnet tool install dotnet-ef
     - name: Generate Database Migration Script
       working-directory: './capstone.web.api'
-      run: dotnet ef migrations script --idempotent --project capstone.web.api --context AppDbContext --startup-project capstone.web.api --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --verbose
+      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --verbose
