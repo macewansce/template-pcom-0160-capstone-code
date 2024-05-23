@@ -14,35 +14,35 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
-    - name: Install dependencies
+    - name: capstone.web.api Install dependencies
       working-directory: './capstone.web.api'
       run: dotnet restore
-    - name: Build
+    - name: capstone.web.api Build
       working-directory: './capstone.web.api'
-      run: dotnet build --no-restore
-    - name: Create tool manifest
+      run: dotnet build --no-restore --configuration Release
+    - name: capstone.web.api Create tool manifest
       working-directory: './capstone.web.api'
       run: dotnet new tool-manifest
-    - name: Install dotnet-ef tools
+    - name: capstone.web.api Install dotnet-ef tools
       working-directory: './capstone.web.api'
       run: dotnet tool install dotnet-ef
-    - name: Generate Database Migration Script
+    - name: capstone.web.api Generate Database Migration Script
       working-directory: './capstone.web.api'
       run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --no-build
   build-capstone-web:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
+    - name: capstone.web Checkout repository
       uses: actions/checkout@v4
-    - name: Setup Node.js
+    - name: capstone.web Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 20
         cache: 'npm'
         cache-dependency-path: 'capstone.web'
-    - name: Install project with a clean slate 
+    - name: capstone.web Install project with a clean slate 
       working-directory: './capstone.web'
       run: npm ci
-    - name: Build project
+    - name: capstone.web Build project
       working-directory: './capstone.web'
       run: npm run build --if-present
