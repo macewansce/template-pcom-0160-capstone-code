@@ -1,11 +1,11 @@
-name: code-capstone-web-api
+name: build-capstone-project
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 jobs:
-  build:
+  build-capstone-web-api:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -28,4 +28,21 @@ jobs:
       run: dotnet tool install dotnet-ef
     - name: Generate Database Migration Script
       working-directory: './capstone.web.api'
-      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --verbose
+      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --no-build
+  build-capstone-web:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+        cache-dependency-path: 'capstone.web'
+    - name: Install project with a clean slate 
+      working-directory: './capstone.web'
+      run: npm ci
+    - name: Build project
+      working-directory: './capstone.web'
+      run: npm run build --if-present

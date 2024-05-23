@@ -28,6 +28,8 @@ This code structure contains both the Web and WebAPI of the Capstone Project.
 
 5. [Visual Studio](https://visualstudio.microsoft.com/downloads)
 
+   5.1. [Entity Framework](https://learn.microsoft.com/en-us/ef/ef6/fundamentals/install)
+
 
 
 
@@ -44,19 +46,28 @@ This code structure contains both the Web and WebAPI of the Capstone Project.
    1.4. Access the [Swagger UI](https://localhost:7197/swagger/)
 
 
-2. capstone.web
+2. capstone.web.db
 
-   2.1. Open `capstone.web` folder in Visual Studio Code
+   2.1. Open `capstone.web.api\capstone.web.api.sln` in Visual Studio
 
-   2.2. Open Terminal
+   2.2. Open a developer terminal (ctrl + `)
 
-   2.3. Install Angular `npm install --global @angular/cli`
+   2.3. Create database and schema `dotnet ef database update`
 
-   2.4. Install project dependancies `npm install`
 
-   2.5. Run the application `ng serve`
+3. capstone.web
 
-   2.6. Access the [To Do web page](http://localhost:4000/)
+   3.1. Open `capstone.web` folder in Visual Studio Code
+
+   3.2. Open Terminal
+
+   3.3. Install Angular `npm install --global @angular/cli`
+
+   3.4. Install project dependancies `npm install`
+
+   3.5. Run the application `ng serve`
+
+   3.6. Access the [To Do UI](http://localhost:4200/)
 
 
 
@@ -68,7 +79,7 @@ To run this project, you will need to do the following:
     You'll need to do a 'database-update' to create the database locally
     When you run the system, the admin username and password is:
 
-       email : admin@examle.com
+       email : admin@example.com
        pass  : admin-password
 
 
