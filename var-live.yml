@@ -1,0 +1,8 @@
+# File: var-live.yml
+variables:
+  baseURL: 'capstone-web-api-[year]-[semester]-live.azurewebsites.net/api'
+  ConnectionStrings.DefaultConnection: 'Server=tcp:db-capstone.database.windows.net,1433;Initial Catalog=capstone-[year]-[semester]-live;Persist Security Info=False;User ID=capstone;Password=SchoolOfContinuingEducation!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+  deployWeb: 'capstone-web-[year]-[semester]-live'
+  deployWebApi: 'capstone-web-api-[year]-[semester]-live'
+  scDatabase: 'sc-capstone-db'
+  scWebApps: 'capstone-[year]-[semester]-sc'

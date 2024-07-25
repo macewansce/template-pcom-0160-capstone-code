@@ -1,7 +1,7 @@
 # Introduction
 
 ## Content
-This code structure contains both the Web and WebAPI of the Capstone Project.
+This code structure contains both the web and web.api projects of the Capstone Project.
 
 
 ## Prerequisites
