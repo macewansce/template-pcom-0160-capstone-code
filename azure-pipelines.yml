@@ -299,7 +299,7 @@ stages:
             - task: AzureWebApp@1
               displayName: '3.3.5. Deploy: Deploy Azure Web App for Linux'
               inputs:
-              azureSubscription: ${{ variables.scWebApps }}
+                azureSubscription: ${{ variables.scWebApps }}
                 appType: 'webApp'
                 appName: '${{ variables.deployWeb }}'
                 package: '$(Pipeline.Workspace)/capstone.web/capstone.web.updated.zip' 
