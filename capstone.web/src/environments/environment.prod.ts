@@ -1,5 +1,5 @@
 export const environment = {
-    production: true,
-    BASE_URL: '#{baseUrl}#',
-    tokenKey: 'authToken'
+  production: true,
+  BASE_URL: '#{baseUrl}#',
+  tokenKey: 'authToken'
 };

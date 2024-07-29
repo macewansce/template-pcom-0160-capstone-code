@@ -7,36 +7,36 @@ import { User } from '../models/user';
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class UserService {
-    private BASE_URL = environment.BASE_URL;
-    private tokenKey = environment.tokenKey;
+  private BASE_URL = environment.BASE_URL;
+  private tokenKey = environment.tokenKey;
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    login(username: string, password: string): Observable<any> {
-        return this.http.post(`${this.BASE_URL}/login`, { username, password });
-    }
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/login`, { username, password });
+  }
 
-    logout(): void {
-        localStorage.removeItem(this.tokenKey);
-    }
+  logout(): void {
+    localStorage.removeItem(this.tokenKey);
+  }
 
-    setToken(token: string): void {
-        localStorage.setItem(this.tokenKey, token);
-    }
+  setToken(token: string): void {
+    localStorage.setItem(this.tokenKey, token);
+  }
 
-    getToken(): string | null {
-        return localStorage.getItem(this.tokenKey);
-    }
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
+  }
 
-    isAuthenticated(): boolean {
-        return this.getToken() !== null;
-    }
+  isAuthenticated(): boolean {
+    return this.getToken() !== null;
+  }
 
-    getUsers(): Observable<User[]> {
-        return this.http.get<User[]>(`${this.BASE_URL}/users`);
-    }
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.BASE_URL}/users`);
+  }
 
 }

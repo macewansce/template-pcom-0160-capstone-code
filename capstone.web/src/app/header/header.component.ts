@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   isAuthenticated(): boolean {
     return this.userService.isAuthenticated();

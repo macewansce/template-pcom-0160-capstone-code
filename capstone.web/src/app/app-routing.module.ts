@@ -6,13 +6,13 @@ import { HeaderComponent } from './header/header.component';
 import { AuthGuard } from './core/security/auth.guard';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: '', component: HeaderComponent, canActivate: [AuthGuard] }, // Example default page
-    { path: '**', redirectTo: '' }
+  { path: 'login', component: LoginComponent },
+  { path: '', component: HeaderComponent, canActivate: [AuthGuard] }, // Example default page
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
