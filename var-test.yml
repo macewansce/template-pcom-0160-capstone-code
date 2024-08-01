@@ -1,9 +1,9 @@
 # File: var-test.yml
 variables:
-  baseURL: 'capstone-web-api-[year]-[semester]-[group]-test.azurewebsites.net/api'
-  ConnectionStrings.DefaultConnection: 'Server=tcp:db-capstone.database.windows.net,1433;Initial Catalog=capstone-[year]-[semester]-[group]-test;Persist Security Info=False;User ID=capstone;Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
-  DefaultConnection: 'Server=tcp:db-capstone.database.windows.net,1433;Initial Catalog=capstone-[year]-[semester]-[group]-test;Persist Security Info=False;User ID=capstone;Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
-  deployWeb: 'capstone-web-[year]-[semester]-[group]-test'
+  baseURL:      'https://capstone-web-api-[year]-[semester]-[group]-test.azurewebsites.net/api'
+  ConnectionStrings.DefaultConnection: 'Server=tcp:database-capstone.database.windows.net,1433;Initial Catalog=capstone-[year]-[semester]-[group]-test;Persist Security Info=False;User ID=capstone;Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+  DefaultConnection:                   'Server=tcp:database-capstone.database.windows.net,1433;Initial Catalog=capstone-[year]-[semester]-[group]-test;Persist Security Info=False;User ID=capstone;Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+  deployWeb:    'capstone-web-[year]-[semester]-[group]-test'
   deployWebApi: 'capstone-web-api-[year]-[semester]-[group]-test'
-  scDatabase: 'capstone-database-sc'
-  scWebApps: 'capstone-[year]-[semester]-[group]-sc'
+  scDatabase:   'capstone-database-sc'
+  scWebApps:    'capstone-[year]-[semester]-[group]-sc'
