@@ -1,7 +1,7 @@
 ﻿using capstone.web.api;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyApiProject.Data
+namespace capstone.web.api.Data
 {
     public class AppDbContext : DbContext
     {
