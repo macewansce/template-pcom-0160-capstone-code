@@ -6,4 +6,4 @@ variables:
   deployWeb:    'capstone-[year]-[semester]-[group]-web-live'
   deployWebApi: 'capstone-[year]-[semester]-[group]-web-api-live'
   scDatabase:   'capstone-database-sc'
-  scWebApps:    'capstone-[year]-[semester]-[group]-sc'
+  scWebApps:    'capstone-web-apps-sc'
