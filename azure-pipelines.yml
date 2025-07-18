@@ -190,7 +190,7 @@ stages:
             - task: replacetokens@6
               displayName: '2.3.3. Replace: Replace capstone.web.api baseURL in capstone.web'
               inputs:
-                sources: '$(Pipeline.Workspace)/capstone.web/dist/**/main*.js'
+                sources: '$(Pipeline.Workspace)/capstone.web/dist/**/*.js'
                 addBOM: true
                 encoding: 'auto'
                 logLevel: 'info'
@@ -310,7 +310,7 @@ stages:
             - task: replacetokens@6
               displayName: '3.3.3. Replace: Replace capstone.web.api baseURL in capstone.web'
               inputs:
-                sources: '$(Pipeline.Workspace)/capstone.web/dist/**/main*.js'
+                sources: '$(Pipeline.Workspace)/capstone.web/dist/**/*.js'
                 addBOM: true
                 encoding: 'auto'
                 logLevel: 'info'
