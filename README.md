@@ -4,6 +4,7 @@
 This code structure contains both the web and web.api projects of the Capstone Project.
 
 
+
 ## Prerequisites
 
 1. [.NET SDK](https://dotnet.microsoft.com/en-us/download) 8.0 LTS
@@ -32,34 +33,41 @@ This code structure contains both the web and web.api projects of the Capstone P
 
 
 
+## Updates
+
+1. Entity Framework
+
+       dotnet tool update --global dotnet-ef
+
+
 
 ## Development Environment
 
-1. capstone.web.api
+1. capstone.web.db
 
    1.1. Open `capstone.web.api\capstone.web.api.sln` in Visual Studio
 
-   1.2. Build the solution (ctrl+shift+b)
+   1.2. Open a developer terminal (ctrl + `)
 
-   1.3. Run the solution in https mode (f5)
-
-   1.4. Access the [Swagger UI](https://localhost:7197/swagger/)
+   1.3. Create database and schema `dotnet ef database update`
 
 
-2. capstone.web.db
+2. capstone.web.api
 
    2.1. Open `capstone.web.api\capstone.web.api.sln` in Visual Studio
 
-   2.2. Open a developer terminal (ctrl + `)
+   2.2. Build the solution (ctrl+shift+b)
 
-   2.3. Create database and schema `dotnet ef database update`
+   2.3. Run the solution in https mode (f5)
+
+   2.4. Access the [Swagger UI](https://localhost:7197/swagger/)
 
 
 3. capstone.web
 
    3.1. Open `capstone.web` folder in Visual Studio Code
 
-   3.2. Open Terminal
+   3.2. Open a terminal (ctrl + `)
 
    3.3. Install Angular `npm install --global @angular/cli`
 
