@@ -10,7 +10,8 @@ namespace capstone.web.api.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable
+            (
                 name: "Users",
                 columns: table => new
                 {
@@ -26,14 +27,17 @@ namespace capstone.web.api.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                });
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Users");
+            migrationBuilder.DropTable
+            (
+                name: "Users"
+            );
         }
     }
 }
