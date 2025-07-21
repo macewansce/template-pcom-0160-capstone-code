@@ -11,7 +11,7 @@ using capstone.web.api.Data;
 namespace capstone.web.api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240512140208_CreateInitialSchema")]
+    [Migration("20250101010101_CreateInitialSchema")]
     partial class CreateInitialSchema
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace capstone.web.api.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

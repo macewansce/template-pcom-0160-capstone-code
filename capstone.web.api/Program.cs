@@ -98,7 +98,7 @@ namespace capstone.web.api
             {
                 var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
                 db.Database.Migrate();
-                SeedDatabase(db);
+                //SeedDatabase(db);
             }
 
             // Configure the HTTP request pipeline.
@@ -121,33 +121,33 @@ namespace capstone.web.api
 
             app.Run();
         }
-        static void SeedDatabase(AppDbContext context)
-        {
-            if (!context.Users.Any())
-            {
-                // Example seed users
-                context.Users.Add(new User
-                {
-                    FirstName = "Admin",
-                    LastName = "User",
-                    Email = "admin@example.com",
-                    Username = "admin",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin-password"), // Securely hash passwords
-                    Role = "Administrator"
-                });
+        //static void SeedDatabase(AppDbContext context)
+        //{
+        //    if (!context.Users.Any())
+        //    {
+        //        // Example seed users
+        //        context.Users.Add(new User
+        //        {
+        //            FirstName = "Admin",
+        //            LastName = "User",
+        //            Email = "admin@example.com",
+        //            Username = "admin",
+        //            PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin-password"), // Securely hash passwords
+        //            Role = "Administrator"
+        //        });
 
-                context.Users.Add(new User
-                {
-                    FirstName = "General",
-                    LastName = "User",
-                    Email = "general@example.com",
-                    Username = "general",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("general-password"),
-                    Role = "General"
-                });
+        //        context.Users.Add(new User
+        //        {
+        //            FirstName = "General",
+        //            LastName = "User",
+        //            Email = "general@example.com",
+        //            Username = "general",
+        //            PasswordHash = BCrypt.Net.BCrypt.HashPassword("general-password"),
+        //            Role = "General"
+        //        });
 
-                context.SaveChanges();
-            }
-        }
+        //        context.SaveChanges();
+        //    }
+        //}
     }
 }
