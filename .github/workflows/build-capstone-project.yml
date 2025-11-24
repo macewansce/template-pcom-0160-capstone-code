@@ -5,6 +5,24 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
+  build-capstone-web-api-db:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+    - name: capstone.web.api Create tool manifest
+      working-directory: './capstone.web.api'
+      run: dotnet new tool-manifest
+    - name: capstone.web.api Install dotnet-ef tools
+      working-directory: './capstone.web.api'
+      run: dotnet tool install dotnet-ef --version 8.*
+    - name: capstone.web.api Generate Database Migration Script
+      working-directory: './capstone.web.api'
+      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --no-build
   build-capstone-web-api:
     runs-on: ubuntu-latest
     steps:
@@ -20,15 +38,6 @@ jobs:
     - name: capstone.web.api Build
       working-directory: './capstone.web.api'
       run: dotnet build --no-restore --configuration Release
-    - name: capstone.web.api Create tool manifest
-      working-directory: './capstone.web.api'
-      run: dotnet new tool-manifest
-    - name: capstone.web.api Install dotnet-ef tools
-      working-directory: './capstone.web.api'
-      run: dotnet tool install dotnet-ef
-    - name: capstone.web.api Generate Database Migration Script
-      working-directory: './capstone.web.api'
-      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --no-build
   build-capstone-web:
     runs-on: ubuntu-latest
     steps:

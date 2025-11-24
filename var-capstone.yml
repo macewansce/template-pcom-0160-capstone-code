@@ -1,5 +1,6 @@
 # File: var-capstone.yml
 variables:
   dotnetVersion: '8'
+  nodeVersion: '20'
   scDatabase: 'capstone-database-sc'
   scWebApps: 'capstone-web-apps-sc'
