@@ -22,7 +22,7 @@ jobs:
       run: dotnet tool install dotnet-ef --version 8.*
     - name: capstone.web.api Generate Database Migration Script
       working-directory: './capstone.web.api'
-      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql --no-build
+      run: dotnet ef migrations script --idempotent --context AppDbContext --configuration Release --output ${{env.DOTNET_ROOT}}/capstone.web.db/capstone.web.db.sql
   build-capstone-web-api:
     runs-on: ubuntu-latest
     steps:
