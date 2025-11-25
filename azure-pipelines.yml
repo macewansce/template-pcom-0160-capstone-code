@@ -50,15 +50,21 @@ stages:
         dependsOn:
           - 'build_capstone_web_api_db'
         steps:
+          - task: UseDotNet@2
+            displayName: '1.2.1. Setup: Use .NET Core SDK ${{ variables.dotnetVersion }}'
+            inputs:
+              packageType: 'sdk'
+              version: '${{ variables.dotnetVersion }}.x'
+              includePreviewVersions: true
           - task: DotNetCoreCLI@2
-            displayName: '1.2.1. Build: Build capstone.web.api using Solution File'
+            displayName: '1.2.2. Build: Build capstone.web.api using Solution File'
             inputs:
               command: 'build'
               projects: '**/*.sln'
               arguments: '--configuration Release --property:PublishDir=$(Build.ArtifactStagingDirectory)/capstone.web.api_$(Build.BuildNumber)'
               workingDirectory: '$(Build.SourcesDirectory)/capstone.web.api'
           - task: DotNetCoreCLI@2
-            displayName: '1.2.2. Build: Create Publish Package in Staging Directory'
+            displayName: '1.2.3. Build: Create Publish Package in Staging Directory'
             inputs:
               command: 'publish'
               projects: '**/*.sln'
@@ -68,7 +74,7 @@ stages:
               modifyOutputPath: false
               workingDirectory: '$(Build.SourcesDirectory)/capstone.web.api'
           - task: ArchiveFiles@2
-            displayName: '1.2.3. Build: Create Archive Package in Staging Directory'
+            displayName: '1.2.4. Build: Create Archive Package in Staging Directory'
             inputs:
               rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/capstone.web.api_$(Build.BuildNumber)'
               includeRootFolder: false
@@ -76,7 +82,7 @@ stages:
               archiveFile: '$(Build.ArtifactStagingDirectory)/capstone.web.api_$(Build.BuildNumber).zip'
               verbose: false
           - task: PublishPipelineArtifact@1
-            displayName: '1.2.4. Publish: Publish Archive Package as a Pipeline Artifact'
+            displayName: '1.2.5. Publish: Publish Archive Package as a Pipeline Artifact'
             inputs:
               targetPath: '$(Build.ArtifactStagingDirectory)/capstone.web.api_$(Build.BuildNumber).zip'
               artifact: 'capstone.web.api'

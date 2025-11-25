@@ -1,47 +1,102 @@
 # Introduction
 
 ## Content
-This code structure contains both the web and web.api projects of the Capstone Project.
+The code structure contains both the web and web.api projects of the Capstone Project. The web.api project also contains the web.api.db migrations.
 
 
 
-## Prerequisites
+## Installing Prerequisites
 
-1. [.NET SDK](https://dotnet.microsoft.com/en-us/download) 8.0 LTS
-
-
-2. [Node JS](https://nodejs.org/en/download/package-manager) 20.13.1 LTS
+1. Open Terminal or Command Prompt in admin mode
 
 
-3. [Git CLI](https://git-scm.com/download/)
+2. [.NET SDK](https://dotnet.microsoft.com/en-us/download) **8.0** LTS
+
+    2.1. Install dotnet sdk
+
+       winget install Microsoft.DotNet.SDK.8
+
+    2.2. Check dotnet sdk
+
+       dotnet --version
 
 
-4. [Visual Studio Code](https://code.visualstudio.com/Download)
+3. [.NET Entity Framework Core](https://learn.microsoft.com/en-us/ef/ef6/fundamentals/install) **8.***
 
-   4.1. Optional [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+    3.1. Install entity framework
 
-   4.2. Optional [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
+       dotnet new tool-manifest
+       dotnet tool install --global dotnet-ef --version 8.*
 
-   4.3. Optional [Azure Repos extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos)
+    3.2. Check entity framework
 
-   4.4. Optional [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub)
-
-
-5. [Visual Studio](https://visualstudio.microsoft.com/downloads)
-
-   5.1. [Entity Framework](https://learn.microsoft.com/en-us/ef/ef6/fundamentals/install)
+       dotnet-ef --version
 
 
+4. [Node JS](https://nodejs.org/en/download/package-manager) **20.13.1** LTS
 
-## Updates
+    4.1. Install NodeJS
 
-1. Entity Framework
+       winget install OpenJS.NodeJS.20
+
+    4.2. Check NodeJS
+
+       node --version
+
+
+5. [Git CLI](https://git-scm.com/download/)
+
+    5.1. Install Git CLI
+
+       winget install Git.Git
+
+    5.2. Check Git CLI
+
+       git --version
+
+
+6. [Visual Studio](https://visualstudio.microsoft.com/downloads)
+
+    6.1. Install Visual Studio
+
+       winget install Microsoft.VisualStudio.2022.Community
+
+
+5. [Visual Studio Code](https://code.visualstudio.com/Download)
+
+    7.1. Install Visual Studio Code
+
+       winget install Microsoft.VisualStudioCode
+
+    7.2. Optional [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension
+
+       code --install-extension ms-vscode.remote-repositories
+
+    7.3. Optional [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension
+
+       code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+
+    7.4. Optional [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) extension
+
+       code --install-extension Angular.ng-template
+
+
+
+
+## Updating Packages
+
+1. Packages installed with WinGet
+
+       winget upgrade --all --accept-source-agreements --accept-package-agreements
+
+2. Entity Framework
 
        dotnet tool update --global dotnet-ef
 
 
 
-## Development Environment
+
+## Setting Up Development Environment
 
 1. capstone.web.db
 
@@ -49,7 +104,7 @@ This code structure contains both the web and web.api projects of the Capstone P
 
    1.2. Open a developer terminal (ctrl + `)
 
-   1.3. Create database and schema `dotnet ef database update`
+   1.3. Create database and schema `dotnet ef database update --project capstone.web.api`
 
 
 2. capstone.web.api
@@ -61,6 +116,16 @@ This code structure contains both the web and web.api projects of the Capstone P
    2.3. Run the solution in https mode (f5)
 
    2.4. Access the [Swagger UI](https://localhost:7197/swagger/)
+
+   2.5. Locate the `POST /api/login` method and expand it
+
+   2.6. Select **Try it out** and change the request body username to `admin` and password to `admin-password` then click **Execute**
+
+   2.7. In the Response body copy the token value into your clipboard
+
+   2.8. Scroll to the top of the Swagger UI interface and click **Authorize**
+
+   2.9. Enter "bearer " then paste the token and click **Authorize**
 
 
 3. capstone.web
@@ -77,37 +142,4 @@ This code structure contains both the web and web.api projects of the Capstone P
 
    3.6. Access the [To Do UI](http://localhost:4200/)
 
-
-
-
-## Getting Started
-To run this project, you will need to do the following:
-
-1.	Installation process
-    You'll need to do a 'database-update' to create the database locally
-    When you run the system, the admin username and password is:
-
-       email : admin@example.com
-       pass  : admin-password
-
-
-2.	Software dependencies
-
-
-3.	Latest releases
-
-
-4.	API references
-
-
-## Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-
-## Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+   3.7. With the capstone.web.api project running in Visual Studio, attempt to log in with username `general` and password `general-password`
