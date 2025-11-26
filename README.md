@@ -5,6 +5,7 @@ The code structure contains both the web and web.api projects of the Capstone Pr
 
 
 
+
 ## Installing Prerequisites
 
 1. Open Terminal or Command Prompt in admin mode
@@ -12,71 +13,71 @@ The code structure contains both the web and web.api projects of the Capstone Pr
 
 2. [.NET SDK](https://dotnet.microsoft.com/en-us/download) **8.0** LTS
 
-    2.1. Install dotnet sdk
+   2.1. Install dotnet sdk
 
        winget install Microsoft.DotNet.SDK.8
 
-    2.2. Check dotnet sdk
+   2.2. Check dotnet sdk
 
        dotnet --version
 
 
 3. [.NET Entity Framework Core](https://learn.microsoft.com/en-us/ef/ef6/fundamentals/install) **8.***
 
-    3.1. Install entity framework
+   3.1. Install entity framework
 
        dotnet new tool-manifest
        dotnet tool install --global dotnet-ef --version 8.*
 
-    3.2. Check entity framework
+   3.2. Check entity framework
 
        dotnet-ef --version
 
 
 4. [Node JS](https://nodejs.org/en/download/package-manager) **20.13.1** LTS
 
-    4.1. Install NodeJS
+   4.1. Install NodeJS
 
        winget install OpenJS.NodeJS.20
 
-    4.2. Check NodeJS
+   4.2. Check NodeJS
 
        node --version
 
 
 5. [Git CLI](https://git-scm.com/download/)
 
-    5.1. Install Git CLI
+   5.1. Install Git CLI
 
        winget install Git.Git
 
-    5.2. Check Git CLI
+   5.2. Check Git CLI
 
        git --version
 
 
 6. [Visual Studio](https://visualstudio.microsoft.com/downloads)
 
-    6.1. Install Visual Studio
+   6.1. Install Visual Studio
 
        winget install Microsoft.VisualStudio.2022.Community
 
 
 5. [Visual Studio Code](https://code.visualstudio.com/Download)
 
-    7.1. Install Visual Studio Code
+   7.1. Install Visual Studio Code
 
        winget install Microsoft.VisualStudioCode
 
-    7.2. Optional [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension
+   7.2. Optional [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension
 
        code --install-extension ms-vscode.remote-repositories
 
-    7.3. Optional [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension
+   7.3. Optional [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension
 
        code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 
-    7.4. Optional [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) extension
+   7.4. Optional [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) extension
 
        code --install-extension Angular.ng-template
 
