@@ -151,6 +151,8 @@ stages:
       - deployment: 'deploy_capstone_web_api_test'
         displayName: '2.2. Deploy capstone.web.api to Test'
         environment: 'test'
+        dependsOn:
+          - 'deploy_capstone_web_api_db_test'
         strategy:
           runOnce:
             deploy:
@@ -166,8 +168,11 @@ stages:
                   displayName: '2.2.2. Replace: Adjust Database Connection String'
                   inputs:
                     folderPath: '$(Pipeline.Workspace)/capstone.web.api_$(Build.BuildNumber).zip'
+                    enableXmlTransform: false
                     xmlTransformationRules: ''
+                    errorOnInvalidSubstitution: false
                     jsonTargetFiles: '**/appsettings.json'
+                    xmlTargetFiles: ''
                 - task: PublishPipelineArtifact@1
                   displayName: '2.2.3. Publish: Publish Updated Archive Package as a Pipeline Artifact'
                   inputs:
@@ -183,8 +188,10 @@ stages:
                     package: '$(Pipeline.Workspace)/capstone.web.api_$(Build.BuildNumber).zip'
                     deploymentMethod: 'runFromPackage'
       - deployment: 'deploy_capstone_web_test'
-        environment: 'test'
         displayName: '2.3. Deploy capstone.web to Test'
+        environment: 'test'
+        dependsOn:
+          - 'deploy_capstone_web_api_test'
         strategy:
           runOnce:
             deploy:
@@ -243,8 +250,8 @@ stages:
       - template: var-live.yml
     jobs:
       - deployment: 'deploy_capstone_web_api_db_live'
-        environment: 'live'
         displayName: '3.1. Deploy capstone.web.api.db to Live'
+        environment: 'live'
         strategy:
           runOnce:
             deploy:
@@ -267,6 +274,8 @@ stages:
       - deployment: 'deploy_capstone_web_api_live'
         displayName: '3.2. Deploy capstone.web.api to Live'
         environment: 'live'
+        dependsOn:
+          - 'deploy_capstone_web_api_db_live'
         strategy:
           runOnce:
             deploy:
@@ -282,8 +291,11 @@ stages:
                   displayName: '3.2.2. Replace: Adjust Database Connection String'
                   inputs:
                     folderPath: '$(Pipeline.Workspace)/capstone.web.api_$(Build.BuildNumber).zip'
+                    enableXmlTransform: false
                     xmlTransformationRules: ''
+                    errorOnInvalidSubstitution: false
                     jsonTargetFiles: '**/appsettings.json'
+                    xmlTargetFiles: ''
                 - task: PublishPipelineArtifact@1
                   displayName: '3.2.3. Publish: Publish Updated Archive Package as a Pipeline Artifact'
                   inputs:
@@ -301,6 +313,8 @@ stages:
       - deployment: 'deploy_capstone_web_live'
         displayName: '3.3. Deploy capstone.web to Live'
         environment: 'live'
+        dependsOn:
+          - 'deploy_capstone_web_api_live'
         strategy:
           runOnce:
             deploy:
